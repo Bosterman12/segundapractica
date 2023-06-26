@@ -316,7 +316,7 @@ initializePassport()
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/session', routerSession ,(req, res) =>{
+app.use('/session', routerSession,(req, res) =>{
     res.render('sessions/login')
     //res.redirect('api/product')
 })

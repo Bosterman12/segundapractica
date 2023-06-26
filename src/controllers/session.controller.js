@@ -2,7 +2,8 @@ export const testLogin = (req, res, next) => {
    
    try{
         if(!req.user){
-            return res.status(401).send({status: "error", error: "usuario invalido"})
+            //return res.status(401).send({status: "error", error: "usuario invalido"})
+            res.render('errorLogin')
         }
 
             req.session.user = {
@@ -45,7 +46,8 @@ export const testLogin = (req, res, next) => {
 export const destroySession = (req, res, next) => {
     if(req.session.login){
         req.session.destroy(() =>{
-            res.status(200).json({message: "Session destruida"})
+            //res.status(200).json({message: "Session destruida"})
+            res.redirect('login')
         })
     }
 }
