@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, SchemaTypes, model } from "mongoose";
 import paginate from "mongoose-paginate-v2";
 
 
@@ -21,12 +21,24 @@ const userSchema = new Schema ({
     },
     gender: {
         type: String,
-        required: true
+        required: true,
+        default: 0
     },
     password: {
         type: String,
         required: true
     },
+
+    cart : {
+        type : SchemaTypes.ObjectId,
+        ref: 'carts'
+    },
+
+    role: {
+        type: String,
+        required: true,
+        default: 'user'
+    }
 })
 
 userSchema.plugin(paginate)

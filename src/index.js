@@ -349,3 +349,7 @@ app.get("/", (req, res) => {
 })
 app.get("/api/product", (req, res) => {
     res.render('home')})
+
+app.get("/api/errorLogin", (req, res) => {
+    res.render('errorLogin')
+})

@@ -5,7 +5,12 @@ import passport from "passport";
 const routerSession = Router()
 
 routerSession.get('/', getSession)
-routerSession.post('/login', passport.authenticate('login'), testLogin)
+routerSession.post('/login', passport.authenticate('login',{
+    passReqToCallback: true,
+    failureRedirect: '../api/errorLogin',
+    successRedirect: '../api/product',
+    failureMessage: '',
+  }), testLogin)
 routerSession.get('/logout', destroySession)
 
 export default routerSession
